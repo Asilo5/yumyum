@@ -2,7 +2,7 @@ import React from 'react'
 
 const TopNav = () => {
     return (
-        <div>
+        <div className='max-w-1520 mx-auto flex justify-between'>
         
         </div>
     )
