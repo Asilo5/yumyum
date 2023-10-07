@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
      AiOutlineMenu, 
      AiOutlineSearch,
@@ -8,10 +8,11 @@ import {
 import {BsFillCartFill, BsPerson} from 'react-icons/bs'
 
 const TopNav = () => {
+    const [sideNav, setSideNav] = useState(false)
     return (
         <div className='max-w-[1520px] mx-auto flex justify-between items-center p-4'>
             <div className='flex items-center'>
-                <div className='cursor-pointer'>
+                <div onClick={()=>setSideNav(!sideNav)} className='cursor-pointer'>
                     <AiOutlineMenu size={25}/>
                 </div>
                 <h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>YUM
@@ -32,6 +33,11 @@ const TopNav = () => {
             <button className='bg-orange-700 text-white hidden md:flex items-center py-2 rounded-full'>
                 <BsFillCartFill size={20}/> Cart
             </button>
+            {
+                sideNav ? (
+                <div className='bg-black/60 fixed w-full h-screen z-10 top-0 left-0'></div>
+                ) : ("")
+            }
         </div>
     )
 }
