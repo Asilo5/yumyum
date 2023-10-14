@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {BsChevronBarLeft, BsChevronBarRight} from 'react-icons/bs'
+import {RxDotFilled} from 'react-icons/rx' 
 
 const FeaturedItems = () => {
     const sliders = [
@@ -26,6 +27,10 @@ const FeaturedItems = () => {
         const isLastSlide = currentIndex === sliders.length - 1
         const newIndex = isLastSlide ? 0 : currentIndex + 1
         setCurrentIndex(newIndex)
+    }
+
+    const moveToNextSlide = (slideIndex) => {
+        setCurrentIndex(slideIndex)
     }
     
     return (
@@ -66,6 +71,19 @@ const FeaturedItems = () => {
               cursor-pointer
             '>
                 <BsChevronBarRight onClick={nextSlider}/>
+            </div>
+            <div className='flex top-4 justify-center py-2'>
+                 {
+                    sliders.map((slidersUrl, slideIndex) => (
+                        <div 
+                            key={slideIndex}
+                            onClick={() => moveToNextSlide(slideIndex)}
+                            className='text-2xl cursor-pointer '
+                        >
+                            <RxDotFilled/>
+                        </div>
+                    ))
+                 }
             </div>
         </div>
     )
