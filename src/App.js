@@ -1,3 +1,4 @@
+import Delivery from "./Components/Delivery";
 import FeaturedItems from "./Components/FeaturedItem";
 import TopNav from "./Components/TopNav";
 
@@ -6,7 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
        <TopNav/>
-       <FeaturedItems />
+       <FeaturedItems/>
+       <Delivery/>
       </header>
     </div>
   );
